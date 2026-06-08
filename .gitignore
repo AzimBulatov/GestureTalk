@@ -13,7 +13,3 @@
 .externalNativeBuild
 .cxx
 local.properties
-
-# Large ML models (>100MB)
-app/src/main/res/raw/*.onnx
-app/src/main/res/raw/*_onnx_data
