@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="bottom_nav_min_height">52dp</dimen>
+    <dimen name="bottom_nav_margin_horizontal">16dp</dimen>
+    <dimen name="bottom_nav_margin_bottom">6dp</dimen>
+    <dimen name="bottom_nav_icon_size">26dp</dimen>
+    <dimen name="bottom_nav_item_padding_top">6dp</dimen>
+    <dimen name="bottom_nav_item_padding_bottom">6dp</dimen>
+    <!-- Отступ контента снизу: навбар рисуется поверх, а не вытесняет ScrollView -->
+    <dimen name="bottom_nav_content_inset">88dp</dimen>
+    <dimen name="bottom_nav_active_indicator_size">28dp</dimen>
+    <dimen name="bottom_nav_active_indicator_margin_horizontal">4dp</dimen>
+</resources>

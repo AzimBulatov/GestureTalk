@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-feature android:name="android.hardware.camera" android:required="true" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.GestureTalk"
+        android:usesCleartextTraffic="true">
+        <!-- Splash Screen - стартовый экран -->
+        <activity
+            android:name=".SplashActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!-- Главный экран -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".SettingsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:label="Настройки" />
+        <activity
+            android:name=".GuideActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:label="@string/nav_guide_local" />
+        <activity
+            android:name=".GuideOnlineActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:label="@string/nav_guide_online" />
+        <activity
+            android:name=".GuideWordsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:label="Слова РЖЯ" />
+        <activity
+            android:name=".GuideDetailActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:label="Описание жеста РЖЯ" />
+        <activity
+            android:name=".AskAiActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:label="Спросите AI" />
+        <activity
+            android:name=".StatsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:label="Статистика" />
+        <activity
+            android:name=".TestSupabaseActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:label="Тест Supabase" />
+        <activity
+            android:name=".AuthActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:label="Авторизация" />
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:label="Профиль" />
+    </application>
+
+</manifest>

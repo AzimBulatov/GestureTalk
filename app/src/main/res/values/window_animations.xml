@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Animation.GestureTalk.Activity" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/nav_fade_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/nav_fade_out</item>
+        <item name="android:activityCloseEnterAnimation">@anim/nav_fade_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/nav_fade_out</item>
+    </style>
+</resources>

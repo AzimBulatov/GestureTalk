@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="16dp">
+
+    <!-- Иконка/Эмодзи -->
+    <TextView
+        android:id="@+id/tvIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="👋"
+        android:textSize="80sp"
+        android:layout_marginBottom="24dp" />
+
+    <!-- Заголовок слайда -->
+    <TextView
+        android:id="@+id/tvSlideTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Начало демонстрации"
+        android:textColor="@color/text_primary"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Описание слайда -->
+    <TextView
+        android:id="@+id/tvSlideDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Поднимите руку или обе руки в кадр, чтобы начать демонстрацию жеста"
+        android:textColor="@color/text_secondary"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:lineSpacingExtra="4dp" />
+
+</LinearLayout>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BPMN модель процесса распознавания жестов - GestureTalk</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        .bpmn-diagram {
+            width: 100%;
+            overflow-x: auto;
+            padding: 20px 0;
+            background-color: #fafafa;
+            border-radius: 5px;
+        }
+        svg {
+            display: block;
+            margin: 0 auto;
+        }
+        .legend {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        .legend h3 {
+            margin-top: 0;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>BPMN модель процесса распознавания жестов в приложении GestureTalk</h1>
+        
+        <div class="bpmn-diagram">
+            <svg width="1700" height="900" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                        <path d="M0,0 L0,6 L9,3 z" fill="#333" />
+                    </marker>
+                    <marker id="arrowDashed" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                        <path d="M0,0 L0,6 L9,3 z" fill="#666" />
+                    </marker>
+                </defs>
+                
+                <!-- Старт -->
+                <circle cx="80" cy="100" r="30" fill="#90EE90" stroke="#2E7D32" stroke-width="3"/>
+                <text x="80" y="155" text-anchor="middle" font-size="14" font-weight="bold">Старт</text>
+                
+                <!-- Стрелка к проверке авторизации -->
+                <line x1="110" y1="100" x2="170" y2="100" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+                
+                <!-- Проверка авторизации -->
+                <rect x="170" y="70" width="150" height="60" fill="#E3F2FD" stroke="#1976D2" stroke-width="2" rx="8"/>
+                <text x="245" y="95" text-anchor="middle" font-size="13">Проверка</text>
+                <text x="245" y="113" text-anchor="middle" font-size="13">авторизации</text>
+                
+                <!-- Стрелка к шлюзу -->
+                <line x1="320" y1="100" x2="380" y2="100" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+                
+                <!-- Шлюз: авторизован? -->
+                <path d="M 430 100 L 380 60 L 430 20 L 480 60 Z" fill="#FFF9C4" stroke="#F57C00" stroke-width="2"/>
+                <text x="430" y="65" text-anchor="middle" font-size="18" font-weight="bold">?</text>
+                
+                <!-- Стрелка вниз (НЕТ) к экрану входа -->
+                <line x1="430" y1="100" x2="430" y2="180" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+                <text x="445" y="145" font-size="12" fill="#C62828" font-weight="bold">Нет</text>
+                
+                <!-- Экран входа -->
+                <rect x="355" y="180" width="150" height="60" fill="#FFCDD2" stroke="#C62828" stroke-width="2" rx="8"/>
+                <text x="430" y="205" text-anchor="middle" font-size="13">Экран входа</text>
+                <text x="430" y="223" text-anchor="middle" font-size="12">(AuthActivity)</text>
+                
+                <!-- Возврат от экрана входа к проверке -->
+                <line x1="355" y1="210" x2="245" y2="210" stroke="#666" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowDashed)"/>
+                <line x1="245" y1="210" x2="245" y2="130" stroke="#666" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowDashed)"/>
+                
+                <!-- Стрелка вправо (ДА) к инициализации -->
+                <line x1="480" y1="60" x2="560" y2="60" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+                <text x="510" y="50" font-size="12" fill="#2E7D32" font-weight="bold">Да</text>
+                
+                <!-- Инициализация камеры -->
+                <rect x="560" y="30" width="150" height="60" fill="#E3F2FD" stroke="#1976D2" stroke-width="2" rx="8"/>
+                <text x="635" y="55" text-anchor="middle" font-size="13">Инициализация</text>
+                <text x="635" y="73" text-anchor="middle" font-size="13">камеры и модели</text>
+                
+                <!-- Стрелка к получению кадра -->
+                <line x1="710" y1="60" x2="770" y2="60" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+                
+                <!-- Получение кадра -->
+                <rect x="770" y="30" width="150" height="60" fill="#E3F2FD" stroke="#1976D2" stroke-width="2" rx="8"/>
+                <text x="845" y="55" text-anchor="middle" font-size="13">Получение кадра</text>
+                <text x="845" y="73" text-anchor="middle" font-size="13">с камеры</text>
+                
+                <!-- Стрелка к детекции рук -->
+                <line x1="845" y1="90" x2="845" y2="150" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+                
+                <!-- Детекция рук -->
+                <rect x="770" y="150" width="150" height="60" fill="#E3F2FD" stroke="#1976D2" stroke-width="2" rx="8"/>
+                <text x="845" y="175" text-anchor="middle" font-size="13">Детекция рук</text>
+                <text x="845" y="193" text-anchor="middle" font-size="12">(MediaPipe)</text>
+                
+                <!-- Стрелка к шлюзу руки обнаружены -->
+                <line x1="845" y1="210" x2="845" y2="270" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+                
+                <!-- Шлюз: руки обнаружены? -->
+                <path d="M 895 310 L 845 270 L 795 310 L 845 350 Z" fill="#FFF9C4" stroke="#F57C00" stroke-width="2"/>
+                <text x="845" y="315" text-anchor="middle" font-size="18" font-weight="bold">?</text>
+                <text x="845" y="375" text-anchor="middle" font-size="11">Руки и движение?</text>
+                
+                <!-- Стрелка НЕТ - возврат к получению кадра -->
+                <line x1="795" y1="310" x2="720" y2="310" stroke="#666" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowDashed)"/>
+                <line x1="720" y1="310" x2="720" y2="60" stroke="#666" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowDashed)"/>
+                <line x1="720" y1="60" x2="770" y2="60" stroke="#666" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowDashed)"/>
+                <text x="705" y="180" font-size="12" fill="#C62828" font-weight="bold">Нет</text>
+                
+                <!-- Стрелка ДА к препроцессингу -->
+                <line x1="895" y1="310" x2="970" y2="310" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+                <text x="920" y="300" font-size="12" fill="#2E7D32" font-weight="bold">Да</text>
+                
+                <!-- Препроцессинг -->
+                <rect x="970" y="280" width="150" height="60" fill="#E3F2FD" stroke="#1976D2" stroke-width="2" rx="8"/>
+                <text x="1045" y="305" text-anchor="middle" font-size="13">Препроцессинг</text>
+                <text x="1045" y="323" text-anchor="middle" font-size="13">кадра</text>
+                
+                <!-- Стрелка к добавлению в буфер -->
+                <line x1="1045" y1="340" x2="1045" y2="400" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+                
+                <!-- Добавление в буфер -->
+                <rect x="970" y="400" width="150" height="60" fill="#E3F2FD" stroke="#1976D2" stroke-width="2" rx="8"/>
+                <text x="1045" y="425" text-anchor="middle" font-size="13">Добавление</text>
+                <text x="1045" y="443" text-anchor="middle" font-size="13">в буфер</text>
+                
+                <!-- Стрелка к шлюзу буфер заполнен -->
+                <line x1="1045" y1="460" x2="1045" y2="520" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+                
+                <!-- Шлюз: буфер заполнен? -->
+                <path d="M 1095 560 L 1045 520 L 995 560 L 1045 600 Z" fill="#FFF9C4" stroke="#F57C00" stroke-width="2"/>
+                <text x="1045" y="565" text-anchor="middle" font-size="18" font-weight="bold">?</text>
+                <text x="1045" y="625" text-anchor="middle" font-size="11">Буфер заполнен?</text>
+                
+                <!-- Стрелка НЕТ - возврат к получению кадра -->
+                <line x1="1095" y1="560" x2="1170" y2="560" stroke="#666" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowDashed)"/>
+                <line x1="1170" y1="560" x2="1170" y2="60" stroke="#666" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowDashed)"/>
+                <line x1="1170" y1="60" x2="920" y2="60" stroke="#666" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowDashed)"/>
+                <text x="1185" y="310" font-size="12" fill="#C62828" font-weight="bold">Нет</text>
+                
+                <!-- Стрелка ДА к инференсу -->
+                <line x1="995" y1="560" x2="920" y2="560" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+                <text x="945" y="550" font-size="12" fill="#2E7D32" font-weight="bold">Да</text>
+                
+                <!-- Инференс модели -->
+                <rect x="770" y="530" width="150" height="60" fill="#E3F2FD" stroke="#1976D2" stroke-width="2" rx="8"/>
+                <text x="845" y="555" text-anchor="middle" font-size="13">Инференс</text>
+                <text x="845" y="573" text-anchor="middle" font-size="13">модели MViT</text>
+                
+                <!-- Стрелка к фильтрации -->
+                <line x1="770" y1="560" x2="650" y2="560" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+                
+                <!-- Фильтрация результата -->
+                <rect x="500" y="530" width="150" height="60" fill="#E3F2FD" stroke="#1976D2" stroke-width="2" rx="8"/>
+                <text x="575" y="555" text-anchor="middle" font-size="13">Фильтрация</text>
+                <text x="575" y="573" text-anchor="middle" font-size="13">результата</text>
+                
+                <!-- Стрелка к шлюзу прошел фильтры -->
+                <line x1="575" y1="590" x2="575" y2="650" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+                
+                <!-- Шлюз: прошел фильтры? -->
+                <path d="M 625 690 L 575 650 L 525 690 L 575 730 Z" fill="#FFF9C4" stroke="#F57C00" stroke-width="2"/>
+                <text x="575" y="695" text-anchor="middle" font-size="18" font-weight="bold">?</text>
+                <text x="575" y="755" text-anchor="middle" font-size="11">Прошел фильтры?</text>
+                
+                <!-- Стрелка НЕТ - возврат к получению кадра -->
+                <line x1="625" y1="690" x2="680" y2="690" stroke="#666" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowDashed)"/>
+                <line x1="680" y1="690" x2="680" y2="60" stroke="#666" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowDashed)"/>
+                <line x1="680" y1="60" x2="770" y2="60" stroke="#666" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowDashed)"/>
+                <text x="665" y="380" font-size="12" fill="#C62828" font-weight="bold">Нет</text>
+                
+                <!-- Стрелка ДА к выводу слова -->
+                <line x1="525" y1="690" x2="450" y2="690" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+                <text x="475" y="680" font-size="12" fill="#2E7D32" font-weight="bold">Да</text>
+                
+                <!-- Вывод слова на экран -->
+                <rect x="300" y="660" width="150" height="60" fill="#E3F2FD" stroke="#1976D2" stroke-width="2" rx="8"/>
+                <text x="375" y="685" text-anchor="middle" font-size="13">Вывод слова</text>
+                <text x="375" y="703" text-anchor="middle" font-size="13">на экран</text>
+                
+                <!-- Стрелка к обновлению статистики -->
+                <line x1="300" y1="690" x2="220" y2="690" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+                
+                <!-- Обновление статистики -->
+                <rect x="70" y="660" width="150" height="60" fill="#E3F2FD" stroke="#1976D2" stroke-width="2" rx="8"/>
+                <text x="145" y="685" text-anchor="middle" font-size="13">Обновление</text>
+                <text x="145" y="703" text-anchor="middle" font-size="13">статистики</text>
+                
+                <!-- Синхронизация с Firebase (параллельно) -->
+                <rect x="70" y="770" width="150" height="60" fill="#E1BEE7" stroke="#7B1FA2" stroke-width="2" rx="8"/>
+                <text x="145" y="795" text-anchor="middle" font-size="13">Синхронизация</text>
+                <text x="145" y="813" text-anchor="middle" font-size="13">с Firebase</text>
+                <line x1="145" y1="720" x2="145" y2="770" stroke="#7B1FA2" stroke-width="2" stroke-dasharray="3,3" marker-end="url(#arrow)"/>
+                
+                <!-- Возврат к получению кадра -->
+                <line x1="220" y1="690" x2="260" y2="690" stroke="#666" stroke-width="2" stroke-dasharray="5,5"/>
+                <line x1="260" y1="690" x2="260" y2="60" stroke="#666" stroke-width="2" stroke-dasharray="5,5"/>
+                <line x1="260" y1="60" x2="770" y2="60" stroke="#666" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowDashed)"/>
+                <text x="270" y="380" font-size="12" fill="#1976D2" font-weight="bold">Следующий жест</text>
+                
+                <!-- Конец -->
+                <circle cx="1450" cy="100" r="30" fill="#FFCDD2" stroke="#C62828" stroke-width="3"/>
+                <circle cx="1450" cy="100" r="22" fill="#FFCDD2" stroke="#C62828" stroke-width="3"/>
+                <text x="1450" y="155" text-anchor="middle" font-size="14" font-weight="bold">Конец</text>
+                
+                <!-- Стрелка к концу (закрытие приложения) -->
+                <line x1="145" y1="830" x2="145" y2="860" stroke="#666" stroke-width="2" stroke-dasharray="5,5"/>
+                <line x1="145" y1="860" x2="1450" y2="860" stroke="#666" stroke-width="2" stroke-dasharray="5,5"/>
+                <line x1="1450" y1="860" x2="1450" y2="130" stroke="#666" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowDashed)"/>
+                <text x="750" y="850" text-anchor="middle" font-size="12" fill="#C62828" font-weight="bold">Закрытие приложения</text>
+                
+                <!-- Легенда -->
+                <g transform="translate(1300, 400)">
+                    <rect x="-80" y="-30" width="240" height="320" fill="white" stroke="#999" stroke-width="1" rx="5"/>
+                    <text x="40" y="0" text-anchor="middle" font-size="16" font-weight="bold">Легенда</text>
+                    
+                    <circle cx="40" cy="40" r="20" fill="#90EE90" stroke="#2E7D32" stroke-width="2"/>
+                    <text x="100" y="50" font-size="13">Старт</text>
+                    
+                    <circle cx="40" cy="90" r="20" fill="#FFCDD2" stroke="#C62828" stroke-width="2"/>
+                    <circle cx="40" cy="90" r="14" fill="#FFCDD2" stroke="#C62828" stroke-width="2"/>
+                    <text x="100" y="100" font-size="13">Конец</text>
+                    
+                    <rect x="0" y="130" width="80" height="40" fill="#E3F2FD" stroke="#1976D2" stroke-width="2" rx="5"/>
+                    <text x="40" y="155" text-anchor="middle" font-size="11">Задача</text>
+                    <text x="100" y="155" font-size="13">Задача</text>
+                    
+                    <path d="M 40 210 L 65 190 L 40 170 L 15 190 Z" fill="#FFF9C4" stroke="#F57C00" stroke-width="2"/>
+                    <text x="100" y="195" font-size="13">Шлюз</text>
+                    
+                    <line x1="10" y1="235" x2="70" y2="235" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+                    <text x="100" y="240" font-size="13">Поток</text>
+                    
+                    <line x1="10" y1="265" x2="70" y2="265" stroke="#666" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowDashed)"/>
+                    <text x="100" y="270" font-size="13">Возврат</text>
+                </g>
+            </svg>
+        </div>
+        
+        <div class="legend">
+            <h3>Описание процесса распознавания жестов</h3>
+            
+            <p><strong>1. Запуск и авторизация</strong></p>
+            <p>Приложение запускается и проверяет авторизацию пользователя. Если пользователь не авторизован, открывается экран входа (AuthActivity). После успешного входа процесс продолжается.</p>
+            
+            <p><strong>2. Инициализация системы</strong></p>
+            <p>Параллельно инициализируется камера устройства и загружается модель машинного обучения MViT из внутренней памяти.</p>
+            
+            <p><strong>3. Основной цикл распознавания</strong></p>
+            <p>Начинается непрерывный цикл обработки кадров с камеры. Каждый кадр проходит через детектор рук MediaPipe, который определяет наличие рук и движения.</p>
+            
+            <p><strong>4. Обработка кадров</strong></p>
+            <p>Если руки обнаружены и есть движение, кадр проходит препроцессинг (изменение размера, нормализация) и добавляется в буфер. Если рук нет, кадр пропускается.</p>
+            
+            <p><strong>5. Распознавание жеста</strong></p>
+            <p>Когда буфер заполнен нужным количеством кадров, выполняется инференс модели MViT. Модель анализирует последовательность кадров и возвращает результат с вероятностями.</p>
+            
+            <p><strong>6. Фильтрация и вывод</strong></p>
+            <p>Результат проходит фильтрацию по уверенности модели и проверку на повторы. Если результат прошел все фильтры, распознанное слово выводится на экран пользователю.</p>
+            
+            <p><strong>7. Обновление данных</strong></p>
+            <p>Обновляется статистика использования приложения (количество распознанных жестов, время работы). Процесс возвращается к началу цикла для распознавания следующего жеста.</p>
+            
+            <p><strong>8. Параллельная синхронизация</strong></p>
+            <p>Независимо от основного процесса, статистика периодически синхронизируется с облачной базой данных Firebase в фоновом режиме.</p>
+            
+            <p><strong>9. Завершение</strong></p>
+            <p>При закрытии приложения пользователем процесс завершается, ресурсы освобождаются.</p>
+        </div>
+    </div>
+</body>
+</html>

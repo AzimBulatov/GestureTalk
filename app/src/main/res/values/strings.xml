@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">GestureTalk</string>
+    <string name="camera_permission_required">Требуется разрешение камеры для распознавания жестов</string>
+    <string name="camera_permission_denied">Разрешение камеры отклонено</string>
+    <string name="model_loading">Загрузка модели...</string>
+    <string name="model_loaded">Готов к работе</string>
+    <string name="model_load_failed">Ошибка загрузки модели</string>
+    <string name="recognition_started">Идет распознавание...</string>
+    <string name="recognition_stopped">Остановлено</string>
+    <string name="show_gesture">Покажите жест...</string>
+    <string name="frames_format">Кадров: %d/%d</string>
+    <string name="frames_line_initial">Кадров: 0/0</string>
+    <!-- Статистика поверх области камеры (правый нижний угол) -->
+    <string name="camera_stats_initial">Кадры: 0/0\nОчередь: 0</string>
+    <string name="camera_stats_hybrid">Кадры: %1$d/%2$d\nОчередь: %3$d</string>
+    <string name="camera_stats_asl">Кадры: %1$d/%2$d\n%3$s</string>
+    <string name="waiting_for_frames">Накопление кадров...</string>
+    <string name="ready_to_recognize">Готов к инференсу</string>
+    <string name="asl_status_buffering">накопление…</string>
+    <string name="asl_status_ready">готово</string>
+    <string name="asl_recognizing">Распознаю жест…</string>
+    <string name="start">Старт</string>
+    <string name="stop">Стоп</string>
+    <string name="clear">Очистить</string>
+    <string name="settings">Настройки</string>
+    <string name="instructions">КАК ПОЛЬЗОВАТЬСЯ:\n\n1. Нажми СТАРТ\n2. Покажи жест (например букву А)\n3. Держи жест 3 секунды не двигаясь\n4. Приложение соберет 32 кадра (0/32 → 32/32)\n5. Модель подумает 5 секунд\n6. Слово появится вверху!\n\nЕсли слово не появилось - уверенность была меньше 10%</string>
+    <string name="nav_guide_local">Справочник local</string>
+    <string name="nav_guide_online">Справочник online</string>
+    <string name="guide_local_title">Справочник local</string>
+    <string name="guide_local_subtitle">РЖЯ: выберите букву, чтобы открыть слова и пошаговое описание жеста.</string>
+</resources>

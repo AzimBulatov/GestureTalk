@@ -1,0 +1,29 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.GestureTalk" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Убираем розовый/фиолетовый цвет -->
+        <item name="colorPrimary">@color/accent_primary</item>
+        <item name="colorOnPrimary">@android:color/white</item>
+        <item name="colorSecondary">@color/text_secondary</item>
+        <item name="colorOnSecondary">@android:color/white</item>
+        <item name="colorSurface">@android:color/white</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="colorSurfaceVariant">#F5F5F5</item>
+        <item name="colorOnSurfaceVariant">@color/text_secondary</item>
+        <!-- Глобально вырубаем зелёный ripple, который раздувает круг -->
+        <item name="colorControlHighlight">@android:color/transparent</item>
+        <item name="android:windowAnimationStyle">@style/Animation.GestureTalk.Activity</item>
+    </style>
+
+    <style name="Theme.GestureTalk" parent="Base.Theme.GestureTalk" />
+
+    <!-- Тема для Splash Screen -->
+    <style name="Theme.Splash" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_gradient_background</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+</resources>

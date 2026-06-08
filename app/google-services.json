@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "138434184145",
+    "firebase_url": "https://gesturetalk-aa330-default-rtdb.firebaseio.com",
+    "project_id": "gesturetalk-aa330",
+    "storage_bucket": "gesturetalk-aa330.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:138434184145:android:1bef7672582db30be316f0",
+        "android_client_info": {
+          "package_name": "com.example.gesturetalk"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVv7w_9nr9PTeBaPTkkI_OsikkiaadZpY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

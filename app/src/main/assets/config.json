@@ -1,0 +1,12 @@
+{
+  "model_name": "mvit32-2.onnx",
+  "frame_interval": 2,
+  "mean": [123.675, 116.28, 103.53],
+  "std": [58.395, 57.12, 57.375],
+  "input_size": 224,
+  "inference_interval_ms": 100,
+  "stable_repeats": 3,
+  "min_confidence": 0.10,
+  "repeat_cooldown_ms": 1000,
+  "max_words_display": 10
+}

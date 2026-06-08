@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/surface_light">
+
+    <!-- Toolbar -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/surface_light"
+        android:elevation="4dp"
+        app:title="Настройки"
+        app:titleTextColor="@color/text_primary"
+        app:navigationIcon="@android:drawable/ic_menu_close_clear_cancel"
+        app:navigationIconTint="@color/text_primary"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:paddingBottom="@dimen/bottom_nav_content_inset"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Заголовок секции -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Модель распознавания"
+                android:textColor="@color/accent_primary"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
+
+            <!-- Описание -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Выберите модель для распознавания жестов. Разные модели имеют разный баланс между скоростью и точностью."
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp"
+                android:layout_marginBottom="16dp" />
+
+            <!-- RadioGroup для выбора модели -->
+            <RadioGroup
+                android:id="@+id/radioGroupModel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/surface_light_alt"
+                android:padding="12dp">
+
+                <!-- РЖЯ-1000 -->
+                <RadioButton
+                    android:id="@+id/radioMvit32"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="РЖЯ-1000 ⭐\n1000 жестов РЖЯ, видео-модель"
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp"
+                    android:buttonTint="@color/accent_primary"
+                    android:padding="16dp"
+                    android:layout_marginBottom="8dp" />
+
+                <!-- ASL 1000 -->
+                <RadioButton
+                    android:id="@+id/radioAsl1000"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="ASL-1000\n1000 жестов ASL"
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp"
+                    android:buttonTint="@color/accent_primary"
+                    android:padding="16dp"
+                    android:layout_marginBottom="8dp" />
+
+            </RadioGroup>
+
+            <!-- Секция настроек камеры -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Настройки камеры"
+                android:textColor="@color/accent_primary"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Настройте качество и производительность камеры"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Разрешение камеры -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Разрешение"
+                android:textColor="@color/text_primary"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
+
+            <RadioGroup
+                android:id="@+id/radioGroupResolution"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/surface_light_alt"
+                android:padding="12dp"
+                android:layout_marginBottom="16dp">
+
+                <RadioButton
+                    android:id="@+id/radioResolutionSD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="SD (480x640) - Быстро"
+                    android:textColor="@color/text_primary"
+                    android:buttonTint="@color/accent_primary"
+                    android:padding="12dp" />
+
+                <RadioButton
+                    android:id="@+id/radioResolutionHD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="HD (720x1280) - Рекомендуется ⭐"
+                    android:textColor="@color/text_primary"
+                    android:buttonTint="@color/accent_primary"
+                    android:padding="12dp" />
+
+                <RadioButton
+                    android:id="@+id/radioResolutionFHD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Full HD (1080x1920) - Максимальное качество"
+                    android:textColor="@color/text_primary"
+                    android:buttonTint="@color/accent_primary"
+                    android:padding="12dp" />
+            </RadioGroup>
+
+            <!-- FPS камеры -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Частота кадров (FPS)"
+                android:textColor="@color/text_primary"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
+
+            <RadioGroup
+                android:id="@+id/radioGroupFPS"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/surface_light_alt"
+                android:padding="12dp"
+                android:layout_marginBottom="16dp">
+
+                <RadioButton
+                    android:id="@+id/radioFPS30"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="30 FPS - Стандарт"
+                    android:textColor="@color/text_primary"
+                    android:buttonTint="@color/accent_primary"
+                    android:padding="12dp" />
+
+                <RadioButton
+                    android:id="@+id/radioFPS60"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="60 FPS - Плавнее, для быстрых жестов 🔥"
+                    android:textColor="@color/text_primary"
+                    android:buttonTint="@color/accent_primary"
+                    android:padding="12dp" />
+            </RadioGroup>
+
+            <!-- Дополнительные настройки -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Дополнительно"
+                android:textColor="@color/text_primary"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/surface_light_alt"
+                android:padding="12dp"
+                android:layout_marginBottom="16dp">
+
+                <!-- Автофокус -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="8dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Автофокус"
+                        android:textColor="@color/text_primary"
+                        android:textSize="16sp" />
+
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/switchAutofocus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true" />
+                </LinearLayout>
+
+                <!-- Стабилизация -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="8dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Стабилизация изображения"
+                        android:textColor="@color/text_primary"
+                        android:textSize="16sp" />
+
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/switchStabilization"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true" />
+                </LinearLayout>
+
+                <!-- Визуализация landmarks -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="8dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Показывать точки на камере"
+                        android:textColor="@color/text_primary"
+                        android:textSize="16sp" />
+
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/switchShowLandmarks"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true" />
+                </LinearLayout>
+
+                <!-- Скрыть логи -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="8dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Скрыть логи на экране Жесты AI"
+                        android:textColor="@color/text_primary"
+                        android:textSize="16sp" />
+
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/switchHideLogs"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="false" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Секция коррекции освещения -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Коррекция освещения"
+                android:textColor="@color/accent_primary"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Улучшение качества распознавания при плохом освещении"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Метод коррекции -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Метод коррекции"
+                android:textColor="@color/text_primary"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
+
+            <RadioGroup
+                android:id="@+id/radioGroupLighting"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/surface_light_alt"
+                android:padding="12dp"
+                android:layout_marginBottom="16dp">
+
+                <RadioButton
+                    android:id="@+id/radioLightingNone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Отключено"
+                    android:textColor="@color/text_primary"
+                    android:buttonTint="@color/accent_primary"
+                    android:padding="12dp" />
+
+                <RadioButton
+                    android:id="@+id/radioLightingAdaptive"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Adaptive Brightness ⭐\nАвтоматическая нормализация яркости"
+                    android:textColor="@color/text_primary"
+                    android:buttonTint="@color/accent_primary"
+                    android:padding="12dp" />
+
+                <RadioButton
+                    android:id="@+id/radioLightingHistogram"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Histogram Equalization\nВыравнивание гистограммы"
+                    android:textColor="@color/text_primary"
+                    android:buttonTint="@color/accent_primary"
+                    android:padding="12dp" />
+
+                <RadioButton
+                    android:id="@+id/radioLightingCLAHE"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="CLAHE\nЛокальная коррекция контраста"
+                    android:textColor="@color/text_primary"
+                    android:buttonTint="@color/accent_primary"
+                    android:padding="12dp" />
+
+                <RadioButton
+                    android:id="@+id/radioLightingGamma"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Gamma Correction\nКоррекция яркости"
+                    android:textColor="@color/text_primary"
+                    android:buttonTint="@color/accent_primary"
+                    android:padding="12dp" />
+            </RadioGroup>
+
+            <!-- Параметры Gamma (показываются только если выбран Gamma) -->
+            <LinearLayout
+                android:id="@+id/layoutGammaParams"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/surface_light_alt"
+                android:padding="12dp"
+                android:layout_marginBottom="16dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Gamma значение"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:id="@+id/textGammaValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="1.2"
+                    android:textColor="@color/accent_primary"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp" />
+
+                <SeekBar
+                    android:id="@+id/seekBarGamma"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:max="30"
+                    android:progress="12" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="0.5 (светлее) ← → 2.0 (темнее)"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    android:layout_marginTop="4dp" />
+            </LinearLayout>
+
+            <!-- Параметры CLAHE (показываются только если выбран CLAHE) -->
+            <LinearLayout
+                android:id="@+id/layoutCLAHEParams"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/surface_light_alt"
+                android:padding="12dp"
+                android:layout_marginBottom="16dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="CLAHE Clip Limit"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:id="@+id/textCLAHEClip"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="2.0"
+                    android:textColor="@color/accent_primary"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp" />
+
+                <SeekBar
+                    android:id="@+id/seekBarCLAHEClip"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:max="30"
+                    android:progress="10" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="1.0 (слабо) ← → 4.0 (сильно)"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    android:layout_marginTop="4dp" />
+            </LinearLayout>
+
+            <!-- Кнопка сохранения -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSave"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Сохранить и перезапустить"
+                android:textSize="16sp"
+                android:layout_marginTop="24dp"
+                app:icon="@android:drawable/ic_menu_save"
+                app:iconGravity="textStart"
+                style="@style/Widget.Material3.Button.ElevatedButton" />
+
+            <!-- Предупреждение -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="⚠️ При смене модели приложение будет перезапущено для применения изменений."
+                android:textColor="@color/accent_primary"
+                android:textSize="12sp"
+                android:layout_marginTop="16dp"
+                android:padding="12dp"
+                android:background="@color/surface_light_alt"
+                android:gravity="center" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLogout"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="8dp"
+                android:text="Выйти из аккаунта"
+                android:textSize="16sp"
+                android:backgroundTint="@color/accent_primary"
+                android:textColor="@color/white"
+                app:cornerRadius="12dp"
+                style="@style/Widget.Material3.Button" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
+        style="@style/Widget.GestureTalk.BottomNavigation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/bottom_nav_margin_horizontal"
+        android:layout_marginEnd="@dimen/bottom_nav_margin_horizontal"
+        android:layout_marginBottom="@dimen/bottom_nav_margin_bottom"
+        app:menu="@menu/bottom_nav_menu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+

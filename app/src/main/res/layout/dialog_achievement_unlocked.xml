@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="24dp"
+    app:cardCornerRadius="24dp"
+    app:cardElevation="8dp"
+    android:background="@android:color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center">
+
+        <!-- Заголовок -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🎉 Достижение получено!"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/accent_success"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Иконка достижения -->
+        <TextView
+            android:id="@+id/tvAchievementIcon"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:text="🏆"
+            android:textSize="64sp"
+            android:gravity="center"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Название достижения -->
+        <TextView
+            android:id="@+id/tvAchievementName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Первые шаги"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_primary"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Описание достижения -->
+        <TextView
+            android:id="@+id/tvAchievementDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Распознайте первый жест"
+            android:textSize="16sp"
+            android:textColor="@color/text_secondary"
+            android:gravity="center"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Кнопка закрытия -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnClose"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Отлично!"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:cornerRadius="12dp"
+            style="@style/Widget.Material3.Button.ElevatedButton" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

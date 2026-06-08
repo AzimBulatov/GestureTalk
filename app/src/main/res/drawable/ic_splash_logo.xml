@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="120dp"
+    android:viewportWidth="120"
+    android:viewportHeight="120">
+    
+    <!-- Круглый фон -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M60,60m-55,0a55,55 0,1 1,110 0a55,55 0,1 1,-110 0" />
+    
+    <!-- Иконка руки (жест) -->
+    <group
+        android:translateX="60"
+        android:translateY="60">
+        
+        <!-- Ладонь -->
+        <path
+            android:fillColor="#2E7D32"
+            android:pathData="M-8,-15 L-8,5 Q-8,8 -5,8 L5,8 Q8,8 8,5 L8,-15 Q8,-18 5,-18 L-5,-18 Q-8,-18 -8,-15 Z" />
+        
+        <!-- Большой палец -->
+        <path
+            android:fillColor="#2E7D32"
+            android:pathData="M-10,-8 Q-15,-8 -15,-3 L-15,2 Q-15,5 -12,5 L-8,5 L-8,-5 Q-8,-8 -10,-8 Z" />
+        
+        <!-- Указательный палец -->
+        <path
+            android:fillColor="#2E7D32"
+            android:pathData="M-6,-18 L-6,-25 Q-6,-28 -3,-28 Q0,-28 0,-25 L0,-18 Z" />
+        
+        <!-- Средний палец -->
+        <path
+            android:fillColor="#2E7D32"
+            android:pathData="M0,-18 L0,-27 Q0,-30 3,-30 Q6,-30 6,-27 L6,-18 Z" />
+        
+        <!-- Безымянный палец -->
+        <path
+            android:fillColor="#2E7D32"
+            android:pathData="M6,-18 L6,-24 Q6,-27 9,-27 Q12,-27 12,-24 L12,-18 Z" />
+        
+        <!-- Мизинец -->
+        <path
+            android:fillColor="#2E7D32"
+            android:pathData="M12,-18 L12,-22 Q12,-25 15,-25 Q18,-25 18,-22 L18,-15 Q18,-12 15,-12 L12,-12 Z" />
+        
+        <!-- Волны коммуникации -->
+        <path
+            android:strokeColor="#4CAF50"
+            android:strokeWidth="2"
+            android:strokeAlpha="0.6"
+            android:fillColor="@android:color/transparent"
+            android:pathData="M20,-5 Q25,-5 25,0 Q25,5 20,5" />
+        
+        <path
+            android:strokeColor="#4CAF50"
+            android:strokeWidth="2"
+            android:strokeAlpha="0.4"
+            android:fillColor="@android:color/transparent"
+            android:pathData="M24,-8 Q30,-8 30,0 Q30,8 24,8" />
+    </group>
+</vector>

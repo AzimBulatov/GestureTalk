@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="TextAppearance.GestureTalk.BottomNav" parent="TextAppearance.Material3.LabelSmall">
+        <item name="android:textSize">0sp</item>
+    </style>
+
+    <style name="Widget.GestureTalk.BottomNavigation" parent="Widget.Material3.BottomNavigationView">
+        <item name="android:minHeight">72dp</item>
+        <item name="android:background">@drawable/bottom_nav_floating_bg</item>
+        <item name="backgroundTint">@null</item>
+        <!-- Выключаем Material3 ActiveIndicator, используем простой itemBackground без анимаций -->
+        <item name="itemActiveIndicatorStyle">@null</item>
+        <item name="itemBackground">@drawable/bottom_nav_item_bg</item>
+        <!-- Отключаем ripple, чтобы не было огромного зелёного круга при нажатии -->
+        <item name="itemRippleColor">@android:color/transparent</item>
+        <item name="itemIconTint">@color/bottom_nav_item_color</item>
+        <item name="itemTextColor">@color/bottom_nav_item_color</item>
+        <item name="itemIconSize">@dimen/bottom_nav_icon_size</item>
+        <item name="itemPaddingTop">@dimen/bottom_nav_item_padding_top</item>
+        <item name="itemPaddingBottom">@dimen/bottom_nav_item_padding_bottom</item>
+        <item name="labelVisibilityMode">unlabeled</item>
+        <item name="itemHorizontalTranslationEnabled">false</item>
+        <item name="itemTextAppearanceActive">@style/TextAppearance.GestureTalk.BottomNav</item>
+        <item name="itemTextAppearanceInactive">@style/TextAppearance.GestureTalk.BottomNav</item>
+        <item name="elevation">0dp</item>
+    </style>
+</resources>
